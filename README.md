@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# React Todos App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Note! В связи со спецификой хостинга на gh pages стартовая компонента приложения открывается по адресу https://eskov-ea.github.io/**React-Todos-App**/, что воспринимается конкретным приложением, как ссылка на task'у. Пожалуйста, нажмите кнопку **Back**, чтобы попасть на стартовую страницу.  
 
-## Available Scripts
+## LET'S GET STARTED  
 
-In the project directory, you can run:
+При первом обращении вам потребуется создать аккаунт, для этого используйте **Sigh up** и введите свои данные.  
 
-### `npm start`
+В дальнейшем для входа используйте login страницу и **sigh in** кнопку.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### E-mail and password валидируются, age предназначена для ввода чисел.  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Далее вы можете:  
+1. Cоздавать новые задачи с **Create task**;  
+2. Редактировать конкретную задачу с помощью кнопки **Edit**;  
+3. Удалять задачу при редактировании **Del**;  
+4. Изменять статус задачи с помощью *checbox* **is task checked?**;  
 
-### `npm test`
+Также статус задачи отображается с помощью зеленого и красного индикатора. Где зеленый - задача выполнена, красный - задача еще не выполнена.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## HOW IT WORKS
 
-### `npm run build`
+Данное приложение написано с помощью ReactJS с использованием hook'ов:  
+* **useContext** - чтобы создать отдельную компоненту и собрать в ней *state*, который далее передается компонентом посредством createContext (чтобы не пробрасывать данные компонентам через *props*);
+* **createContext** - создает Provider (поставщик) и при отрисовке, рендере, потребителя передает необходимый *state*;
+* **useState** - создает пару переменная-функция для изменения этой переменной;
+* **useEffect** - служит для управления различными *side effects* (побочные действия для функциональной компоненты), такие как запросы за данными, получение, изменение DOM и тд;  
+Вторым параметром принимает список зависимостей;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Redirect (Роутинг)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Роутинг исполнен с помощью *react-router-dom* и изменения адресов с помощью history (отсюда происходит проблема инициализации приложения на gh pages).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
