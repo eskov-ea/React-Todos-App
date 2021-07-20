@@ -1,0 +1,11 @@
+.logoutBtnBox{
+    display: flex;
+    
+}
+
+.logoutBtn{
+    font-size: 25px;
+    width: 120px;
+    font-family: "Roboto Condensed";
+    font-weight: bolder;
+}
