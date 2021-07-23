@@ -79,7 +79,7 @@ function App() {
             isFetching
               ? <Preloader />
               : <Switch>
-                <PrivateRoute exact path="/">
+                <PrivateRoute exact path="/React-Todos-App">
                   <UserProfile />
                 </PrivateRoute>
                 <PrivateRoute path="/settings">
@@ -88,7 +88,7 @@ function App() {
                 <Route path="/login" component={LoginMain} />
                 {/* Защитить путь к несуществующей таске */}
                 <Route path="/:id" component={TaskById} />
-                <Redirect to="/" />
+                <Redirect to="/React-Todos-App" />
               </Switch>
 
           }

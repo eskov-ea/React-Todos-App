@@ -20,7 +20,7 @@ export const UserSettings = (props) => {
 
 
     const disSetSettings = () => {
-        history.push("/")
+        history.push("/React-Todos-App")
     }
 
     const onSubmitChanges = async (formObj) => {
@@ -36,7 +36,7 @@ export const UserSettings = (props) => {
         if (response.status === 200) {
             rerenderUserData();
             alert("Your name/age have been changed successfully");
-            history.push("/");
+            history.push("/React-Todos-App");
             setButtonActive(false);
         } else {
             alert("Something went wrong");
