@@ -1,11 +1,32 @@
-.logoutBtnBox{
+.logoutBtnBox {
     display: flex;
-    
 }
 
-.logoutBtn{
+.logoutBtn {
     font-size: 25px;
     width: 120px;
     font-family: "Roboto Condensed";
     font-weight: bolder;
+}
+
+@media screen and (max-width: 650px) {
+    .logoutBtnBox {
+        height: 80px;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: auto;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .logoutBtnBox {
+        max-width: 40px;
+        height: 40px;
+    }
+    .logoutBtn {
+        font-size: 14px;
+        align-items: center;
+        width: 50px;
+    }
 }

@@ -1,0 +1,23 @@
+.title {
+    margin: 50px;
+    font-size: 52px;
+}
+
+@media screen and (max-width: 650px) {
+
+    .title{
+        font-size: 46px;
+    }
+}
+@media screen and (max-width: 550px) {
+
+    .title{
+        font-size: 38px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title{
+        font-size: 30px;
+    }
+}
