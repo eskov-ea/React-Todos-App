@@ -1,8 +1,8 @@
 # React Todos App
 
 
-###### 31.08.2021 A problems occured within the Heroku server that contains the used API.
-#### I have no idea would it be run again. Unfortunatly, you can not test the app this time. Feel welcome to ask me any question.
+# 31.08.2021 A problems occured within the Heroku server that contains the used API.
+## I have no idea would it be run again. Unfortunatly, you can not test the app this time. Feel welcome to ask me any question.
 
 ## LET'S GET STARTED  
 
