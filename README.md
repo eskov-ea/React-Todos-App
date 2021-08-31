@@ -2,7 +2,9 @@
 
 
 # 31.08.2021 A problems occured within the Heroku server that contains the used API.
+Проблема с сервером на стороне владильца API.
 ## I have no idea would it be run again. Unfortunatly, you can not test the app this time. Feel welcome to ask me any question.
+Я не знаю, будет ли исправлена в ближайшее время данная проблема. Вы можете задать мне интересующие вас вопросы.
 
 ## LET'S GET STARTED  
 
