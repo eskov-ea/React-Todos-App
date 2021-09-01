@@ -1,14 +1,30 @@
 .showMoreBtn {
     display: inline-block;
+    text-align: center;
     margin: 20px 0 0 0;
     width: 120px;
     height: 50px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-weight: 700;
+    background-color: rgb(235, 235, 235);
     font-size: 18px;
     opacity: 0.75;
     cursor: pointer;
+    white-space: nowrap;
 }
-.showMoreBtn:hover {
-    opacity: 1;
+
+@media screen and (min-width: 992px) {
+    .showMoreBtn:hover {
+        opacity: 1;
+    }
+}
+@media screen and (max-width: 767px) {
+    .showMoreBtn {
+        width: 80px;
+        height: 40px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 15px;
+        white-space: nowrap;
+    }
 }
