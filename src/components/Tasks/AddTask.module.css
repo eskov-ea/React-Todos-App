@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,34 +6,38 @@
     margin-bottom: 20px;
 }
 
-.taskField{
+.taskField {
     display: flex;
     flex-direction: column;
     width: 80%;
 }
-.button{
+.button {
     width: 80%;
-
 }
 
-.button:hover{
+.button:hover {
     cursor: pointer;
 }
 
-.taskField textarea{
+.taskField textarea {
     font-family: "Roboto Condensed";
     font-weight: bolder;
-
 }
 
-.close{
+.close {
     margin-left: auto;
     width: 10%;
     border: 1px solid #939393;
     border-radius: 3px;
 }
 
-.close:hover{
+.close:hover {
     background-color: #939393;
     color: white;
+}
+
+@media screen and (max-width: 767px) {
+    .close {
+        width: 20%;
+    }
 }

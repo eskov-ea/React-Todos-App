@@ -28,7 +28,8 @@ function App() {
     setUserData, isFetching, setIsFetching,
     tasks, setTasks, trigger, setTrigger,
     buttonIsActive, setButtonActive, rerenderTasks,
-    rerenderUserData } = useData();
+    rerenderUserData, countTasks, setCountTasks,
+    nextTasksOnPage, lastTaskOnPage, setLastTaskOnPage } = useData();
   const onSetTrigger = () => {
     trigger ? setTrigger(false) : setTrigger(true)
   }
@@ -58,10 +59,10 @@ function App() {
       const header = { "Authorization": `Bearer ${token}` };
       const response = await AxiosRequest(url, body, header, method);
       setTasks(response.data.data)
+      setCountTasks(response.data.count)
       setIsFetching(false)
     }
   }, [token, trigger])
-
 
 
   return (
@@ -70,7 +71,8 @@ function App() {
         tasks, userData, token, setToken,
         haveAccount, setHaveAccount, onSetTrigger,
         buttonIsActive, setButtonActive, rerenderTasks,
-        rerenderUserData
+        rerenderUserData,
+        nextTasksOnPage, lastTaskOnPage, setLastTaskOnPage
       }} >
         <div className="App">
           <Header />

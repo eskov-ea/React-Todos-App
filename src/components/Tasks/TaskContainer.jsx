@@ -7,7 +7,7 @@ export const TaskContainer = (props) => {
 
     return (
         <>
-                <Tasks />
+            <Tasks />
         </>
     )
 }

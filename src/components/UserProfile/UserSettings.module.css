@@ -1,32 +1,45 @@
-.wrapper{
+.wrapper {
     display: flex;
     width: 100%;
     align-items: center;
     flex-direction: column;
 }
 
-.box{
+.box {
     display: flex;
     width: 80%;
     flex-direction: row;
     align-items: flex-end;
 }
 
-.userAvatar{
+.userAvatar {
     max-width: 250px;
     margin: 32px 32px -20px 32px;
 }
 
-.marginTopBtn{
+.marginTopBtn {
     margin-top: 180px;
 }
 
-.imgPart{
+.imgPart {
     max-width: 400px;
 }
 
-.backBtnBox{
+.backBtnBox {
     display: flex;
     width: 80%;
     margin-top: 50px;
+}
+
+/* MEDIA ======================================================================== */
+@media screen and (max-width: 767px) {
+    .box {
+        flex-direction: column;
+    }
+    .backBtnBox {
+        margin: 19px 0 35px 0;
+    }
+    p {
+        margin: 1rem 0 0 0;
+    }
 }
