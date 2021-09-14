@@ -10,7 +10,7 @@ import { Context } from '../../Context';
 
 export const AddTask = (props) => {
 
-    const { onSetTrigger, token, buttonIsActive, setButtonActive } = useContext(Context);
+    const { getTasks, onSetTrigger, token, buttonIsActive, setButtonActive } = useContext(Context);
 
 
     const [isEditMode, setEditMode] = useState(false);
@@ -45,12 +45,11 @@ export const AddTask = (props) => {
         const response = await AxiosRequest(url, body, header, method);
         console.log(response)
         if (response.status === 201) {
-            doRerender();
-            setInputText("");
-            onDisactiveEditMode();
+            getTasks();
+            // setInputText("");
+            // onDisactiveEditMode();
             setButtonActive(false)
         } else {
-            console.log(response);
             setButtonActive(false);
         }
     }

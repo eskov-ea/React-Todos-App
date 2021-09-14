@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { AxiosRequest } from './components/Auth/AxiosRequest';
 
 const DataContext = createContext();
 
@@ -16,16 +17,27 @@ export const DataProvider = ({ children }) => {
     const [nextTasksOnPage, setIt] = useState(4)
     const [lastTaskOnPage, setLastTaskOnPage] = useState(4)
 
-    const rerenderTasks = () => trigger ? setTrigger(false) : setTrigger(true);
+    // const rerenderTasks = () => trigger ? setTrigger(false) : setTrigger(true);
     const rerenderUserData = () => rerender ? setRerender(false) : setRerender(true);
+    const getTasks = async () => {
+        setIsFetching(true)
+        const url = "https://api-nodejs-todolist.herokuapp.com/task";
+        const body = null;
+        const method = "GET";
+        const header = { "Authorization": `Bearer ${token}` };
+        const response = await AxiosRequest(url, body, header, method);
+        setTasks(response.data.data)
+        setCountTasks(response.data.count)
+        setIsFetching(false)
+    }
 
     return <DataContext.Provider value={{
-        haveAccount,
+        getTasks, haveAccount,
         setHaveAccount, token, setToken,
         rerender, setRerender, userData,
         setUserData, isFetching, setIsFetching,
         tasks, setTasks, trigger, setTrigger,
-        buttonIsActive, setButtonActive, rerenderTasks,
+        buttonIsActive, setButtonActive,
         rerenderUserData, countTasks, setCountTasks,
         nextTasksOnPage, lastTaskOnPage, setLastTaskOnPage
     }} >

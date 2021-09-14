@@ -12,7 +12,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 export const TaskById = (props) => {
     const history = useHistory();
-    const { tasks, token, buttonIsActive, setButtonActive, rerenderTasks } = useContext(Context);
+    const { getTasks, tasks, token, buttonIsActive, setButtonActive } = useContext(Context);
     const taskId = props.match.params.id;
 
     // Здесь можно было бы сделать запрос за нужной таской типа GetTaskById,
@@ -62,7 +62,7 @@ export const TaskById = (props) => {
         if (response.status === 200) {
             history.push("/");
             setButtonActive(false);
-            rerenderTasks();
+            getTasks();
         } else {
             console.log(response)
             setButtonActive(false)

@@ -8,7 +8,6 @@ import { LoginMain } from './components/LoginRegistrat/LoginMain';
 import { Context } from './Context';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
-import { AxiosRequest } from './components/Auth/AxiosRequest';
 import { Preloader } from './components/Preloader/Preloader'
 import { useData } from './DataContext';
 import { PrivateRoute } from './PrivateRoute';
@@ -16,24 +15,14 @@ import { TaskById } from './components/Tasks/TaskById';
 import { UserSettings } from './components/UserProfile/UserSettings';
 
 
-//----  Problem 1 ---- TextField создается в разных компонентах. Надо вынести отдельно.
-
-
-
 function App() {
 
-  const { haveAccount,
+  const { getTasks, haveAccount,
     setHaveAccount, token, setToken,
-    rerender, setRerender, userData,
-    setUserData, isFetching, setIsFetching,
-    tasks, setTasks, trigger, setTrigger,
-    buttonIsActive, setButtonActive, rerenderTasks,
-    rerenderUserData, countTasks, setCountTasks,
+    rerender, userData, setUserData,
+    isFetching, setIsFetching, tasks,
+    buttonIsActive, setButtonActive, rerenderUserData,
     nextTasksOnPage, lastTaskOnPage, setLastTaskOnPage } = useData();
-  const onSetTrigger = () => {
-    trigger ? setTrigger(false) : setTrigger(true)
-  }
-
 
   // ---- ----------AUTHITICATION PART-------------
   useEffect(async () => {
@@ -52,25 +41,17 @@ function App() {
   // ----   --------GET TASKS----------
   useEffect(async () => {
     if (token != "") {
-      setIsFetching(true)
-      const url = "https://api-nodejs-todolist.herokuapp.com/task";
-      const body = null;
-      const method = "GET";
-      const header = { "Authorization": `Bearer ${token}` };
-      const response = await AxiosRequest(url, body, header, method);
-      setTasks(response.data.data)
-      setCountTasks(response.data.count)
-      setIsFetching(false)
+      getTasks()
     }
-  }, [token, trigger])
+  }, [token])
 
 
   return (
     <BrowserRouter>
       <Context.Provider value={{
-        tasks, userData, token, setToken,
-        haveAccount, setHaveAccount, onSetTrigger,
-        buttonIsActive, setButtonActive, rerenderTasks,
+        getTasks, tasks, userData, token, setToken,
+        haveAccount, setHaveAccount,
+        buttonIsActive, setButtonActive,
         rerenderUserData,
         nextTasksOnPage, lastTaskOnPage, setLastTaskOnPage
       }} >

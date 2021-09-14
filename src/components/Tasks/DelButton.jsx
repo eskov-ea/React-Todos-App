@@ -15,42 +15,42 @@ import style from './DelButton.module.css';
 
 export const DelButton = (props) => {
 
-    const { token, onSetTrigger, setButtonActive, buttonIsActive } = useContext(Context);
+    const { getTasks, token, onSetTrigger, setButtonActive, buttonIsActive } = useContext(Context);
 
     const history = useHistory();
 
-const doRerender = () => {
-    onSetTrigger();
-}    
-
-const deleteTask = ( async (id) => {
-    setButtonActive(true)
-    const url = `https://api-nodejs-todolist.herokuapp.com/task/${id}`;
-    const body = null;
-    const method = "DELETE";
-    const header = { 
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json"
-    };
-
-    const response = await AxiosRequest(url, body, header, method);
-    console.log(response.status)
-    if (response.status === 200) {
-        console.log("DELETING")
-        doRerender();
-        history.push("/");
-        setButtonActive(false)
-    } else { 
-        console.log(response);
-        setButtonActive(false);
+    const doRerender = () => {
+        onSetTrigger();
     }
-})
+
+    const deleteTask = (async (id) => {
+        setButtonActive(true)
+        const url = `https://api-nodejs-todolist.herokuapp.com/task/${id}`;
+        const body = null;
+        const method = "DELETE";
+        const header = {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        };
+
+        const response = await AxiosRequest(url, body, header, method);
+        console.log(response.status)
+        if (response.status === 200) {
+            console.log("DELETING")
+            getTasks();
+            history.push("/");
+            setButtonActive(false)
+        } else {
+            console.log(response);
+            setButtonActive(false);
+        }
+    })
 
 
 
-    return <Button dataset={props.id} 
-    className={style.del_btn} disabled={buttonIsActive}
-    // variant="outline-info"
-    onClick={() => {deleteTask(props.id)} }
->delete</Button>
+    return <Button dataset={props.id}
+        className={style.del_btn} disabled={buttonIsActive}
+        // variant="outline-info"
+        onClick={() => { deleteTask(props.id) }}
+    >delete</Button>
 }
